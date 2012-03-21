@@ -30,6 +30,9 @@ function [ pim, dim ] = MakeDichromatIms( im )
         for jt = 1:size(im,2)
             pim(it,jt,:) = M^(-1)*(P*(M*reshape(im_p(it,jt,:),3,1)));
             dim(it,jt,:) = M^(-1)*(D*(M*reshape(im_d(it,jt,:),3,1)));
+            size(pim(it,jt,:))
+            size(dim(it,jt,:))
+            pause;
         end
     end
 
