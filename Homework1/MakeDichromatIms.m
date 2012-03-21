@@ -12,17 +12,21 @@ function [ pim, dim ] = MakeDichromatIms( im )
     D = [1 0 0; 0.494207 0 1.24827; 0 0 1];
     pim = zeros(size(im_prot));
     dim = zeros(size(im_deut));
+    
+    M1DM=M^(-1)*D*M; %Precalc transformation
+    M1PM=M^(-1)*P*M;
+    
     for it = 1:size(im,1)
         for jt = 1:size(im,2)
-            dim(it,jt,:) = M^(-1)*D*M*reshape(im_deut(it,jt,:),3,1);
-            pim(it,jt,:) = M^(-1)*P*M*reshape(im_prot(it,jt,:),3,1);
+            dim(it,jt,:) = M1DM*reshape(im_deut(it,jt,:),3,1);
+            pim(it,jt,:) = M1PM*reshape(im_prot(it,jt,:),3,1);
         end
     end
     
     minminpim = min(min(pim))
     
-     pim = 255*(pim.^(1/2.2));
-     dim = 255*(dim.^(1/2.2));
-     pim = uint8(pim);
-     dim = uint8(dim);
+    pim = 255*(pim.^(1/2.2));
+    dim = 255*(dim.^(1/2.2));
+    pim = uint8(pim);
+    dim = uint8(dim);
 end
