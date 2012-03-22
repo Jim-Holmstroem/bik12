@@ -1,10 +1,19 @@
-function fs = ExtractGridHistogram(im, ng, nbins)
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+function fs = ExtractGridHistogram(im, ng, nbins,ispath)
+    % If ispath=0 then it takes a GRAYSCALE IMAGE
+    %
+    %
+
+    if(nargin < 4)
+        ispath=1
+    end
+    
     fs = [];
-    col_im = imread(im);
-    im = single(rgb2gray(col_im));
-    %im = (im - mean(im(:)))/std(im(:));
+    if(ispath)
+        im = imread(im);
+        im = single(rgb2gray(im));
+    end
+    
+    im = (im - mean(im(:)))/std(im(:));
     xs = floor(linspace(1, size(im, 2)+1, ng+1));
     ys = floor(linspace(1, size(im, 1)+1, ng+1));
     for i=1:ng
