@@ -19,16 +19,17 @@ function [ pim, dim ] = MakeDichromatIms( im )
     
     pim = zeros(size(im_p));
     dim = zeros(size(im_d));
-    
+
     M1DM=M^(-1)*D*M; %Precalc transformation
     M1PM=M^(-1)*P*M;
 
-    for it = 1:size(im,1)
-        for jt = 1:size(im,2)
-            pim(it,jt,:) = M1PM*reshape(im_p(it,jt,:),3,1);
-            dim(it,jt,:) = M1DM*reshape(im_d(it,jt,:),3,1);
-        end
-    end
+    apim=pim(:);
+    abim=pim(:);
+
+    assert(0) %just a try without forloops, but stumbiling on matlabs bad innerprod support
+
+    pim(it,jt,:) = M1PM*reshape(im_p(it,jt,:),3,1);
+    dim(it,jt,:) = M1DM*reshape(im_d(it,jt,:),3,1);
 
     pim = 255*(pim.^(1/2.2));
     dim = 255*(dim.^(1/2.2));
