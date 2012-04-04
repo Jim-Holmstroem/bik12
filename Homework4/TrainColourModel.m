@@ -16,6 +16,6 @@ function [mu,Sigma] = TrainColourModel(DirName,n)
     end
     rgb_data = double(reshape(cims, [size(cims,1)*size(cims,2), 3]));
     mu = mean(rgb_data);
-    Sigma= cov(rgb_data);
+    Sigma= cov(rgb_data); 
 
 end

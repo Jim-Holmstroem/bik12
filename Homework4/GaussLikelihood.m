@@ -1,6 +1,11 @@
 function lvals = GaussLikelihood(xs,mean,Sigma)
-    [N,d]=size(xs);
-    dxs=xs-repmat(mean,[N 1]);
-    
+    [N,d]=size(xs)
 
-    lvals=arrayfun(@(dx) 1/((2*pi)^(d/2)*det(Sigma)^(1/2))*exp(-1/2*dx*inv(Sigma)*dx'),dxs)
+    dxs=xs-repmat(mean,[N 1]);
+
+    gauss_i=@(i) 1/((2*pi)^(d/2)*det(Sigma)^(1/2))*exp(-1/2*dxs(i,:)*inv(Sigma)*dxs(i,:)') %little bit ugly
+    lvals=zeros(N,1)
+    for it=1:N
+        lvals(it)=gauss_i(it);
+    end
+    

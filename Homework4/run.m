@@ -7,4 +7,4 @@ lvals=GaussLikelihood(xs,mean,Sigma);
 
 img_skin=reshape(lvals,[size(img,1),size(img,2)])
 
-
+imshow(img_skin)
