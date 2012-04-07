@@ -1,10 +1,6 @@
 function lvals = GaussLikelihood(xs,mean,Sigma)
     [N,d]=size(xs);
 
-    size(xs)
-    size(mean)
-    size(Sigma)
-
     dxs=xs-repmat(mean,[N 1]);
 
     %fugly
