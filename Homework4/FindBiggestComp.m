@@ -9,5 +9,5 @@ function [X, Y] = FindBiggestComp(cs)
     [ssz, ind] = max(sz);
 
     [I, J] = find(L == ind);
-    X = [min(J), min(J), max(J), max(J)];
-    Y = [min(I), max(I), max(I), min(I)];
+    X = [min(J), max(J)];
+    Y = [min(I), max(I)];
