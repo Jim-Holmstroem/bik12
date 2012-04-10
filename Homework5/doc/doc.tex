@@ -19,6 +19,7 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 
+
 \theoremstyle{definition}
 \newtheorem{exercise}{Exercise}
 
@@ -49,7 +50,7 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 
 \author{Jim Holmström - 890503-7571}
 \title{Image Based Recognition and Classification - DD2427}
-\subtitle{Excercise 5}
+\subtitle{Exercise 5}
 
 \begin{document}
 
@@ -59,11 +60,11 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 \begin{exercise}
 {\bf
     Show that the decision boundary induced by $1NN$ for the two feature vectors
-    $\bar{x_1},\bar{x_2}$ is a straight line.
+    $\bar{x}_1,\bar{x}_2$ is a straight line.
 }
 \end{exercise}
 \begin{solution}
-    Decision boundary is defined as: $|\bar{x_1}-\bar{x}|=|\bar{x_2}-\bar{x}|$
+    Decision boundary is defined as: $|\bar{x}_1-\bar{x}|=|\bar{x}_2-\bar{x}|$
     since neither side can be negative we can simple square both side and expand
     the $L_2$-norm which gives us:\\
 
@@ -74,20 +75,58 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
     $\sum{(x_{2,i}-x_{1,i})x_i}+\frac{\sum{x_{1,i}^2-x_{2,i}^2}}{2}=0$\\
     $\sum{c_ix_i}+d=0$
 
-    With $c_i,d$ is all constants given $\bar{x_1},\bar{x_2}$, this is the form
+    With $c_i,d$ is all constants given $\bar{x}_1,\bar{x}_2$, this is the form
     for multidimensional linear equation with an $(n-1)$-hyperplane as
     solution. $\qed$
 \end{solution}
 %-----------------------
 \begin{exercise}
-Draw decision boundaries for $1NN$-classifier with the training sets:\\
-Class1:${(7, 11), (15, 9), (15, 7), (13, 5), (14, 4), (9, 3), (11, 3)}$\\
-Class2:${(11, 11), (13, 11), (8, 10), (9, 9), (7, 7), (7, 5), (15, 3)}$\\
+\bf{
+    Draw decision boundaries for $1NN$-classifier with the training sets:\\
+    Class1:$\{(7, 11), (15, 9), (15, 7), (13, 5), (14, 4), (9, 3), (11, 3)\}$\\
+    Class2:$\{(11, 11), (13, 11), (8, 10), (9, 9), (7, 7), (7, 5), (15, 3)\}$\\
+}
 \end{exercise}
 \begin{solution}
-    \begin{center}
-        \includegraphics{exercise2.pdf}
-    \end{center}
+    See \eqref{fig:exercise2} at page \pageref{fig:exercise2}
 \end{solution}
+
+\begin{exercise}
+\bf{
+    Why might using a too large value of $k$ be bad for this data set?\\
+    Why might using a too small value be bad for this data set?
+}
+\end{exercise}
+\begin{solution}
+Generally a large $k$ will reduce noise in the classification in our case $5NN$
+would result in an linear classifier between the 2 camps and in reality the two
+oddballs at each camp wont be taken in to consideration and this might be a
+good or bad thing depending on if the oddballs are noise or relevant data.
+In the same way but inverted holds for too small values of $k$ say for example
+$2NN$ we would have an island behind the camp which might be relevant or just
+missclassification due to the noise (the oddballs).
+\end{solution}
+
+\begin{exercise}
+\bf{
+    
+}
+\end{exercise}
+\begin{solution}
+    
+\end{solution}
+
+
+\pagebreak
+\begin{figure}[t]
+    \vspace{-270pt}
+    \begin{center}
+        \includegraphics[width=1.0\textwidth]{exercise2.pdf}
+    \end{center}
+    \vspace{-170pt}
+    \caption{The decision boundary for exercise2}
+    \label{fig:exercise2}
+\end{figure}
+
 
 \end{document}
