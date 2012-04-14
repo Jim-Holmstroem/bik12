@@ -28,4 +28,7 @@ function [X,labs,w,h]=LoadData(DirName)
 
     X=zeros(size(imgs(1).data,1),numel(imgs)); %preallocate
     labs=[imgs.digit];
-
+    
+    for it=1:numel(imgs)
+        X(:,it)=imgs(it).data;
+    end
