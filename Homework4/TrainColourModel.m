@@ -23,7 +23,7 @@ function [mu,Sigma] = TrainColourModel(DirName,p,n)
         for it=1:n_pics
             filename=strcat(DirName,'/',im_fnames{it});
             centerpic=GrabCenterPixels((filename),p);
-            cims=[cims;reshape(centerpic,size(centerpic,1)*size(centerpic,2),3)];	
+            cims=[cims;reshape(centerpic,size(centerpic,1)*size(centerpic,2),3)];
         end
         rgb_data = double(cims);
         
