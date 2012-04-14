@@ -11,7 +11,7 @@ function [X,labs,w,h]=LoadData(DirName)
             error(strcat(imgs(it).name,' is malformed filename-format'));
         end
         imgs(it).istest=strcmp(info(1),'test');
-        imgs(it).digit=info(2);
+        imgs(it).digit=str2num(info{2});
         imgs(it).id=info(3);
 
         %load the actual data
