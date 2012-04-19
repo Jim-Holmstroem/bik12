@@ -59,33 +59,71 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 
 \begin{exercise}
 {\bf
-Show that
+Prove the eigenvector trick
 }
 \end{exercise}
 \begin{solution}
+The respective eigenvectors and eigenvalues:
+\begin{equation}
+    \label{eig1}
+    XX'Q=Q\Lambda
+\end{equation}
+\begin{equation}
+    X'XQ^*=Q^*\Lambda^*
+\end{equation}
+Where $Q,\Lambda$ are eigenvector-matrix and eigenvalue-matrix (diagonal).
+\begin{eqnarray}
+    X'XQ^*&=&Q^*\Lambda^* \\
+    XX'XQ^*&=&XQ^*\Lambda^* \\ 
+    \label{before}
+    XX'(XQ^*)&=&(XQ^*)\Lambda^* \\
+    \label{conc}
+    XX'\hat{Q}&=&\hat{Q}\hat{\Lambda}
+\end{eqnarray}
+And since Eigenvectors and eigenvalues are unique we can match \eqref{eig1} with \eqref{conc}. Knowing this relation and the renaming between \eqref{before} and \eqref{conc} we can draw the conclousion:
+\begin{equation}
+    XQ^*=Q,\Lambda^*=\Lambda
+\end{equation}
+\qed
+
 
 \end{solution}
 %-----------------------
 
+\subsection{LoadData}
+    \verbatiminput{../LoadData.m}
+
+\subsection{ComputePCABasis}
+    \verbatiminput{../ComputePCABasis.m}
+
+\subsection{ReconstructFace}
+    \verbatiminput{../ReconstructFace.m}
+
 \pagebreak
 \begin{figure}[t]
+    \vspace{-70pt}
     \begin{center}
         \includegraphics[width=1.0\textwidth]{../Result_Pics/ADAFACES_eigen/ADA.pdf}
     \end{center}
+    \vspace{-170pt}
     \caption{Eigenfaces for ADA-db}
     \label{fig:ADA}
 \end{figure}
 \begin{figure}[t]
+    \vspace{-70pt}
     \begin{center}
         \includegraphics[width=1.0\textwidth]{../Result_Pics/BUSH_eigen/Bush.pdf}
     \end{center}
+    \vspace{-170pt}
     \caption{Eigenfaces for Bush-db}
     \label{fig:Bush}
 \end{figure}
 \begin{figure}[t]
+    \vspace{-70pt}
     \begin{center}
         \includegraphics[width=1.0\textwidth]{../Result_Pics/Reconstruct/rim.pdf}
     \end{center}
+    \vspace{-170pt}
     \caption{Reconstructed faces}
     \label{fig:reconstruct}
 \end{figure}
