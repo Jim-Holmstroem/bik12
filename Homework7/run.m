@@ -1,4 +1,4 @@
-[X,w,h]=LoadData('ADAFACES',[0.33,0.33]);
+[X,w,h]=LoadData('ADAFACES',[1,1]);
 [mu,W,D]=ComputePCABasis(X);
 
 student = double(imread('Student4.jpg'))/256;
