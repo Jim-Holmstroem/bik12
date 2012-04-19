@@ -8,12 +8,11 @@ w_d = @(d1) PerceptronLearning(X_train,labs_train,d1);
 
 digits=0:9;
 
-W=zeros(size(X,1)+1,numel(digits));
-for it=digits
-    W(:,it+1)=PerceptronLearning(X_train,labs_train,it);
+for digit=digits
 end
 
 for digit=digits
-    [tp,tn]=TestHyperPlane(X_test,labs_test,digit,W(digit+1));
+    w=PerceptronLearning(X_train,labs_train,digit);
+    [tp,tn]=TestHyperPlane(X_test,labs_test,digit,w);
     disp(strcat(num2str(digit),',',num2str(tp),',',num2str(tn)));  
 end
