@@ -5,8 +5,8 @@ TMP = /tmp
 wget_images:
 	wget $(URL)/DebugInfo.tar.gz -O $(TMP)/DebugInfo.tar.gz
 	tar -xf $(TMP)/DebugInfo.tar.gz -C $(TMP)
-	ln -s $(TMP)/DebugInfo debug
+	if [ -h debug ]; then echo "debug does already exist"; else	ln -s $(TMP)/DebugInfo debug; fi
 	wget $(URL)/TestImages.tar.gz -O $(TMP)/TestImages.tar.gz 
 	tar -xf $(TMP)/TestImages.tar.gz -C $(TMP)
-	ln -s $(TMP)/TestImages test
+	if [ -h test ]; then echo "test does alreadu exist"; else ln -s $(TMP)/TestImages test; fi
 
