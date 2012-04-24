@@ -57,25 +57,41 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 \maketitle
 \thispagestyle{empty}
 
-\begin{exercise}
-{\bf
-}
-\end{exercise}
-\begin{solution}
+\subsection{run}
+    \verbatiminput{../src/run.m}
 
-\end{solution}
-%-----------------------
+\subsection{LoadData}
+    \verbatiminput{../src/LoadData.m}
+
+\subsection{PerceptronLearning}
+    \verbatiminput{../src/PerceptronLearning.m}
+
+\subsection{TestHyperPlane}
+    \verbatiminput{../src/TestHyperPlane.m}
+
+\subsection{Result}
+    \verbatiminput{resultdata.dat}
 
 \pagebreak
 \begin{figure}[t]
     \vspace{-270pt}
     \begin{center}
-        \includegraphics[width=1.0\textwidth]{plot1.pdf}
+        \includegraphics[width=1.0\textwidth]{linear_perceptron.pdf}
     \end{center}
     \vspace{-170pt}
-    \caption{The decision boundary for exercise2}
-    \label{fig:exercise2}
+    \caption{Linear Perceptron}
+    \label{fig:linear}
 \end{figure}
+\begin{figure}[t]
+    \vspace{-270pt}
+    \begin{center}
+        \includegraphics[width=1.0\textwidth]{minimum_square_error.pdf}
+    \end{center}
+    \vspace{-170pt}
+    \caption{Minimum Square}
+    \label{fig:square}
+\end{figure}
+
 
 
 \end{document}
