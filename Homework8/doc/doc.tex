@@ -18,6 +18,7 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{enumerate}
 
 
 \theoremstyle{definition}
@@ -58,12 +59,29 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 \thispagestyle{empty}
 
 \begin{exercise}
-{\bf
+Considering the XOR-problem
+\begin{enumerate}[i)]
+    \item Are the classes lineary separable?
+    \item Let the weak classifiers be defined by
+        \begin{equation}
+            h_v((x,y))=\text{sgn}(a_vx+c_v) ~~h_h((x,y))=\text{sgn}(a_hy+c_h)
+        \end{equation}
+        Work through one iteration of the boosting algorithm. What is the problem? Can we use this set of weak classifiers to solve the XOR problem?
+    \item Let the weak classifiers be defined by
+        \begin{equation}
+            h_1((x,y))=\text{sgn}(a_1(x,y)+c_v) ~~h_2((x,y))=\text{sgn}(a_2(x,-y)+c_h)
+        \end{equation}
 
-}
+\end{enumerate}
 \end{exercise}
-\begin{solution}
+\begin{solution}~\\
+\begin{enumerate}[i)]
+    \item test
+    \item test2
+    \item test3
+\end{enumerate}
 
+No, since no one line can classify all the points correctly.
 \end{solution}
 %-----------------------
 
