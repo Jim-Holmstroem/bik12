@@ -18,6 +18,7 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{enumerate}
 
 
 \theoremstyle{definition}
@@ -50,48 +51,38 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 
 \author{Jim Holmström - 890503-7571}
 \title{Image Based Recognition and Classification - DD2427}
-\subtitle{Exercise 6}
+\subtitle{Exercise 8}
 
 \begin{document}
 
 \maketitle
 \thispagestyle{empty}
 
-\subsection{run}
-    \verbatiminput{../src/run.m}
+\begin{exercise}
+Considering the XOR-problem
+\begin{enumerate}[i)]
+    \item Are the classes lineary separable?
+    \item Let the weak classifiers be defined by
+        \begin{equation}
+            h_v((x,y))=\text{sgn}(a_vx+c_v) ~~h_h((x,y))=\text{sgn}(a_hy+c_h)
+        \end{equation}
+        Work through one iteration of the boosting algorithm. What is the problem? Can we use this set of weak classifiers to solve the XOR problem?
+    \item Let the weak classifiers be defined by
+        \begin{equation}
+            h_1((x,y))=\text{sgn}(a_1(x,y)+c_v) ~~h_2((x,y))=\text{sgn}(a_2(x,-y)+c_h)
+        \end{equation}
 
-\subsection{LoadData}
-    \verbatiminput{../src/LoadData.m}
+\end{enumerate}
+\end{exercise}
+\begin{solution}~\\
+\begin{enumerate}[i)]
+    \item test
+    \item test2
+    \item test3
+\end{enumerate}
 
-\subsection{PerceptronLearning}
-    \verbatiminput{../src/PerceptronLearning.m}
-
-\subsection{TestHyperPlane}
-    \verbatiminput{../src/TestHyperPlane.m}
-
-\subsection{Result}
-    \verbatiminput{resultdata.dat}
-
-\pagebreak
-\begin{figure}[t]
-    \vspace{-270pt}
-    \begin{center}
-        \includegraphics[width=1.0\textwidth]{linear_perceptron.pdf}
-    \end{center}
-    \vspace{-170pt}
-    \caption{Linear Perceptron}
-    \label{fig:linear}
-\end{figure}
-\begin{figure}[t]
-    \vspace{-270pt}
-    \begin{center}
-        \includegraphics[width=1.0\textwidth]{minimum_square_error.pdf}
-    \end{center}
-    \vspace{-170pt}
-    \caption{Minimum Square}
-    \label{fig:square}
-\end{figure}
-
-
+No, since no one line can classify all the points correctly.
+\end{solution}
+%-----------------------
 
 \end{document}
