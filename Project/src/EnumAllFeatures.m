@@ -1,6 +1,6 @@
 function all_ftypes = EnumAllFeatures(W, H)
     %TODO change to real range! or something!!
-    nf = 39929+1+10000; %+1 since matlab is retarded
+    nf = 39929;
     assert(W==19);
     assert(H==19);
     
@@ -11,8 +11,8 @@ function all_ftypes = EnumAllFeatures(W, H)
         for h = 1:floor(H/2)-2
             for x = 1:W-w
                 for y = 1:H-2*h
-                    nf = nf - 1; %cowboy, doin it backwards
                     all_ftypes(nf,:)=[1, x, y, w, h];
+                    nf = nf - 1; %cowboy, doin it backwards
                 end
             end
         end
@@ -23,8 +23,8 @@ function all_ftypes = EnumAllFeatures(W, H)
         for h = 1:H-2
             for x = 1:W-2*w
                 for y = 1:H-h
-                   nf = nf - 1; 
                    all_ftypes(nf,:)=[2, x, y, w, h];
+                   nf = nf - 1; 
                 end
             end
         end
@@ -35,8 +35,8 @@ function all_ftypes = EnumAllFeatures(W, H)
         for h = 1:H-2
             for x = 1:W-3*w
                 for y = 1:H-h
-                    nf = nf - 1; 
                     all_ftypes(nf,:)=[3, x, y, w, h];
+                    nf = nf - 1; 
                 end
             end
         end
@@ -46,12 +46,11 @@ function all_ftypes = EnumAllFeatures(W, H)
         for h = 1:floor(H/2)-2
             for x = 1:W-2*w
                 for y = 1:H-2*h
-                    nf = nf - 1;
                     all_ftypes(nf,:)=[4, x, y, w, h];
+                    nf = nf - 1;
                 end
             end
         end
     end
-    nf
-    assert(nf==1);
+    assert(nf==0);
 end
