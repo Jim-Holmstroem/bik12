@@ -1,0 +1,2 @@
+To fetch the needed files run:
+    make wget_images
