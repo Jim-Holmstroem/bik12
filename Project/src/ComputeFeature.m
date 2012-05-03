@@ -1,5 +1,4 @@
 function fs = ComputeFeature(ii_ims, ftype)
-    featuretypes={@(ii_im,x,y,w,h) FeatureTypeI(ii_im,x,y,w,h),@(ii_im,x,y,w,h) FeatureTypeII(ii_im,x,y,w,h),@(ii_im,x,y,w,h) FeatureTypeIII(ii_im,x,y,w,h),@(ii_im,x,y,w,h) FeatureTypeIV(ii_im,x,y,w,h)};
     fs = zeros(1,length(ii_ims));
     enumfeatures = EnumAllFeatures(19,19);
     warning('Hard Code size 19x19');
