@@ -7,11 +7,6 @@ function ftype_vec = VecFeature(ftype, W, H)
     
     switch t
         case 1
-            x
-            y
-            w
-            h
-
             ftype_vec = VecBoxSum(x, y, w, h, W ,H) -VecBoxSum( x, y+h, w, h,W,H);
         case 2
              ftype_vec = VecBoxSum( x+w, y, w, h,W,H) -VecBoxSum( x, y, w, h,W,H);
