@@ -1,4 +1,6 @@
 test
 debug
 training
+*.mat
+*.swp
 
