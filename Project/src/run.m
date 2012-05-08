@@ -29,6 +29,7 @@ dinfo3 = load('debug/debuginfo3.mat');
 ii_ims=LoadIms('training/FACES');
 
 ftype = dinfo3.ftype;
+
 sum(abs(dinfo3.fs - ComputeFeature(ii_ims, ftype)) > eps)
 
 %% debug4
@@ -45,8 +46,8 @@ RandStream.setDefaultStream(stream);
 LoadSaveImData('training/FACES', ni, im_sfn);
 ComputeSaveFData(all_ftypes, f_sfn);
 
-
-
+Fdata = load('FaceData.mat');
+FTdata = load('FeaturesToUse.mat');
 
 %% debug5
 
@@ -60,6 +61,4 @@ stream = RandStream('mt19937ar','seed', dinfo5.jseed);
 RandStream.setDefaultStream(stream);
 GetTrainingData(all_ftypes, np, nn);
 
-Fdata = load('FaceData.mat');
 NFdata = load('NonFaceData.mat');
-FTdata = load('FeaturesToUse.mat');
