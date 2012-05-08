@@ -11,7 +11,7 @@ function ftype_vec = VecFeature(ftype, W, H)
         case 2
              ftype_vec = VecBoxSum( x+w, y, w, h,W,H) -VecBoxSum( x, y, w, h,W,H);
         case 3
-            ftype_vec = VecFeature([2,ftype(2:end)],W,H) + VecBoxSum(x+2*w,y,w,h,W,H);
+            ftype_vec = VecFeature([2,ftype(2:end)],W,H) - VecBoxSum(x+2*w,y,w,h,W,H);
         case 4
             ftype_vec =  VecFeature([1,ftype(2)+w,ftype(3:end)],W,H) - VecFeature([1,ftype(2:end)],W,H);
     end
