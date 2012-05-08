@@ -3,7 +3,7 @@ function fs = ComputeFeature(ii_ims, ftype)
     enumfeatures = EnumAllFeatures(19,19);
     warning('Hard Code size 19x19');
     warning('featuretypes should be recreated all the time');
-    for it = 1:size(ii_ims,1);
+    for it = 1:size(fs,2);
        if(ftype(1) == 1)
             fs(it) = FeatureTypeI(ii_ims{it},ftype(2),ftype(3),ftype(4),ftype(5));
         end
