@@ -1,14 +1,14 @@
 function LoadSaveImData(dirname, ni, im_sfn)
     face_fnames = dir(strcat(dirname,'/*.bmp'));
 
-    num_faces = size(face_fnames,1)
-    assert(ni<=num_faces)
+    num_faces = size(face_fnames,1);
+    assert(ni<=num_faces);
     rndm = randperm(length(face_fnames));
     fnums = rndm(1:ni);%rndmpick
     face_fnames = face_fnames(fnums);
     
-    W=20
-    H=20
+    W=20;
+    H=20;
     ii_ims=zeros(ni,W*H);
    
     for it=1:ni
