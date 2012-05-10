@@ -9,7 +9,7 @@ function [theta, p, err] = LearnWeakClassifier(ws, fs, ys)
 
     e = [ws'*abs(ys-h(:,1));ws'*abs(ys-h(:,2))];
     
-    [err p]=min(e);
+    [err,p]=min(e);
     p = (p==1)-(p==2);
     
 end

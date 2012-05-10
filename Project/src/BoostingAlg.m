@@ -25,9 +25,7 @@ function Cparams = BoostingAlg(Fdata,NFdata,FTdata,T)
         Theta(it) = [theta,j];
         beta=err/(1-err);
         h=p*fs(:,j)<p*theta; %classify all images with the current feature
-        w=w.*(beta.^(1-abs()));
-        
+        w=w.*(beta.^(1-abs(h-ys)));
         alpha(it) = log(1/beta); %TODO -log(beta)
-        
     end
 end
