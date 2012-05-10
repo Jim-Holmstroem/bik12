@@ -37,6 +37,9 @@ sum(abs(dinfo3.fs - ComputeFeature(ii_ims, ftype)) > eps)
 disp('debug4')
 dinfo4 = load('debug/debuginfo4.mat');
 
+GetTrainingData(EnumAllFeatures(19,19),100,100)
+
+
 ni = dinfo4.ni;
 all_ftypes = dinfo4.all_ftypes;
 im_sfn = 'FaceData.mat';
@@ -62,3 +65,17 @@ RandStream.setDefaultStream(stream);
 GetTrainingData(all_ftypes, np, nn);
 
 NFdata = load('NonFaceData.mat');
+
+
+%% feature response
+
+disp('feature response');
+
+feature_response;
+
+
+%% makeclassifierpic
+
+disp('classifierpic')
+
+imagesc(MakeClassifierPic(FTdata,[5192,12764],[1.83,1.45],[1,-1],20,20))
