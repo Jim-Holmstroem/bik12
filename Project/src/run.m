@@ -85,4 +85,16 @@ ncpic = 255*(cpic-min(min(cpic)))/(max(max(cpic))-min(min(cpic)));
 figure();
     colormap(gray)
     imagesc(ncpic);
+    
+%% boosting first
+
+FTdata_mini.W=FTdata.W;
+FTdata_mini.H=FTdata.H;
+FTdata_mini.all_ftypes=FTdata.all_ftypes(1:1000,:);
+FTdata_mini.fmat=FTdata.fmat(:,1:1000);
+
+Cparams=BoostingAlg(Fdata,NFdata,FTdata_mini,3);
+
+
+
 
