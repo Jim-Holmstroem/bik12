@@ -5,9 +5,13 @@ function cpic = MakeClassifierPic(all_ftypes,chosen_f,alphas,ps,W,H)
 
     size(chosen_f)
     
-    for it=1:size(chosen_f,2)
+    for it=1:numel(chosen_f)
         ftype=all_ftypes(chosen_f(it),:);
         pic = MakeFeaturePic(ftype,W,H);
         wpic = w(it)*pic;
         cpic = cpic + wpic;
     end
+
+    cpic = 255*(cpic-min(min(cpic)))/(max(max(cpic))-min(min(cpic)));
+
+    

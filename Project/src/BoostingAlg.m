@@ -8,17 +8,23 @@ function Cparams = BoostingAlg(Fdata,NFdata,FTdata,T)
     
     Cparams.all_ftypes=FTdata.all_ftypes;
     Cparams.fmat=FTdata.fmat;
-    
+
+    verboten=zeros(T,1);verboten_i=1;
+
     Theta=zeros(T,2);
     alpha=zeros(T,1);
+    ps=zeros(T,1);
+    
     for it=1:T
         ws=ws/sum(ws);    
         current_best=[0,0,Inf,0];
         for jt=1:size(fs,2) %TODO vectorize and use [.,.]=min(answers)
-            [theta,p,err]=LearnWeakClassifier(ws,fs(:,jt),ys); %train weak classifier with j-th feature
-            current=[theta,p,err,jt];
-            if(current_best(3)>current(3))
-                current_best=current;
+            if(~(ismember(jt,verboten))) %if not already taken
+                [theta,p,err]=LearnWeakClassifier(ws,fs(:,jt),ys); %train weak classifier with j-th feature
+                current=[theta,p,err,jt];
+                if(current_best(3)>current(3))
+                    current_best=current;
+                end
             end
         end
         best=current_best; %found the best (non victor BUT VIKTOR)
@@ -27,14 +33,19 @@ function Cparams = BoostingAlg(Fdata,NFdata,FTdata,T)
         err=best(3);
         j=best(4);
         
+        verboten(verboten_i)=j; %mark the best already taken
+        verboten_i=verboten_i+1;
+
         Theta(it,:) = [theta;j];
         beta=err/(1-err);
         h=p*fs(:,j)<p*theta; %classify all images with the current feature
         ws=ws.*(beta.^(1-abs(h-ys)));
         alpha(it) = log(1/beta); %TODO -log(beta)
+        ps(it) = p;
     end
     
     Cparams.alphas=alpha;
     Cparams.Thetas=Theta;
+    Cparams.ps=ps;
     
 end
