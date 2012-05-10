@@ -5,10 +5,11 @@ function [theta, p, err] = LearnWeakClassifier(ws, fs, ys)
 
     theta=(mup+mun)/2;
 
-    h = [fs<theta,fs>theta];
+    h = [fs<theta,fs>theta]; %TODO make this work with multiply fs in a matrix
 
     e = [ws'*abs(ys-h(:,1));ws'*abs(ys-h(:,2))];
     
     [err p]=min(e);
     p = (p==1)-(p==2);
+    
 end

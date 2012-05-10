@@ -78,4 +78,11 @@ feature_response;
 
 disp('classifierpic')
 
-imagesc(MakeClassifierPic(FTdata,[5192,12764],[1.83,1.45],[1,-1],20,20))
+cpic=MakeClassifierPic(FTdata.all_ftypes,[582,13755],[1.83,1.45],[1,-1],20,20);
+
+ncpic = 255*(cpic-min(min(cpic)))/(max(max(cpic))-min(min(cpic)));
+
+figure();
+    colormap(gray)
+    imagesc(ncpic);
+
