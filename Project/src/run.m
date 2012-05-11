@@ -80,7 +80,6 @@ disp('classifierpic')
 
 cpic=MakeClassifierPic(FTdata.all_ftypes,[582,13755],[1.83,1.45],[1,-1],20,20);
 
-
 figure();
     colormap(gray)
     imagesc(cpic);
@@ -89,18 +88,14 @@ figure();
 
 FTdata_mini.W=FTdata.W;
 FTdata_mini.H=FTdata.H;
-FTdata_mini.all_ftypes=FTdata.all_ftypes(:,:);
-FTdata_mini.fmat=FTdata.fmat(:,:);
+FTdata_mini.all_ftypes=FTdata.all_ftypes(1:1000,:);
+FTdata_mini.fmat=FTdata.fmat(:,1:1000);
 
-Cparams=BoostingAlg(Fdata,NFdata,FTdata_mini,128);
+Cparams=BoostingAlg(Fdata,NFdata,FTdata_mini,32);
 
 figure();
     colormap(gray)
     imagesc(MakeClassifierPic(Cparams.all_ftypes,Cparams.Thetas(:,2),Cparams.ps,Cparams.alphas,20,20));
-    
 
-
-
-
-
+%% 
 

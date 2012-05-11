@@ -22,5 +22,5 @@ fsn=fs(find(~ys));
 plot(xfsp,nfsp/numel(fsp),'r')
 hold on;
 plot(xfsn,nfsn/numel(fsn),'g')
-plot([theta theta],[0 1],'b')
+plot([theta theta],[0 0.5],'b')
 
