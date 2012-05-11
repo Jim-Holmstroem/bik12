@@ -88,8 +88,8 @@ figure();
 
 FTdata_mini.W=FTdata.W;
 FTdata_mini.H=FTdata.H;
-FTdata_mini.all_ftypes=FTdata.all_ftypes(1:1000,:);
-FTdata_mini.fmat=FTdata.fmat(:,1:1000);
+FTdata_mini.all_ftypes=FTdata.all_ftypes(:,:);
+FTdata_mini.fmat=FTdata.fmat(:,:);
 
 Cparams=BoostingAlg(Fdata,NFdata,FTdata_mini,32);
 
@@ -98,9 +98,6 @@ figure();
     imagesc(MakeClassifierPic(Cparams.all_ftypes,Cparams.Thetas(:,2),Cparams.ps,Cparams.alphas,20,20));
 
 %% ROC (my world)
-
-LoadSaveImData('training/FACES',100,'FaceData');
-LoadSaveImData('training/NFACES',100,'NonFaceData');
 
 ComputeROC(Cparams,Fdata,NFdata);
 
