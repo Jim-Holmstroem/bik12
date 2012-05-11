@@ -12,7 +12,6 @@ function LoadSaveImData(dirname, ni, im_sfn)
     H=20;
     ii_ims=zeros(ni,W*H);
 
-
     for it=1:ni
 
         [im,ii_im]=LoadIm(strcat(dirname,'/',face_selected_fnames(it).name));

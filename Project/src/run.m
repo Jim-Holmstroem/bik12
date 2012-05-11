@@ -97,5 +97,11 @@ figure();
     colormap(gray)
     imagesc(MakeClassifierPic(Cparams.all_ftypes,Cparams.Thetas(:,2),Cparams.ps,Cparams.alphas,20,20));
 
-%% 
+%% ROC (my world)
+
+LoadSaveImData('training/FACES',100,'FaceData');
+LoadSaveImData('training/NFACES',100,'NonFaceData');
+
+ComputeROC(Cparams,Fdata,NFdata);
+
 
