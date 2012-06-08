@@ -16,6 +16,6 @@ function fpic = MakeFeaturePic(ftype, W, H)
             fpic=MakeFeaturePic([2,x,y,w,h],W,H);
             fpic(y:y+h,x+2*w:x+3*w-1) = -1;
         case 4
-            fpic=MakeFeaturePic([2,x,y,w,h],W,H)-4*MakeFeaturePic([2,x,y+h+1,w,h],W,H);
+            fpic=MakeFeaturePic([2,x,y,w,h],W,H)-MakeFeaturePic([2,x,y+h+1,w,h],W,H);
     end
 end

@@ -39,7 +39,6 @@ dinfo4 = load('debug/debuginfo4.mat');
 
 GetTrainingData(EnumAllFeatures(19,19),100,100)
 
-
 ni = dinfo4.ni;
 all_ftypes = dinfo4.all_ftypes;
 im_sfn = 'FaceData.mat';
@@ -66,18 +65,12 @@ GetTrainingData(all_ftypes, np, nn);
 
 NFdata = load('NonFaceData.mat');
 
-
 %% feature response
-
 disp('feature response');
-
 feature_response;
 
-
 %% makeclassifierpic
-
 disp('classifierpic')
-
 cpic=MakeClassifierPic(FTdata.all_ftypes,[582,13755],[1.83,1.45],[1,-1],20,20);
 
 figure();

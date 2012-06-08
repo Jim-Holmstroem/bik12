@@ -2,8 +2,6 @@ function cpic = MakeClassifierPic(all_ftypes,chosen_f,alphas,ps,W,H)
     cpic = zeros(W,H);
 
     w=(alphas.*ps);
-
-    size(chosen_f)
     
     for it=1:numel(chosen_f)
         ftype=all_ftypes(chosen_f(it),:);
@@ -14,4 +12,6 @@ function cpic = MakeClassifierPic(all_ftypes,chosen_f,alphas,ps,W,H)
 
     cpic = 255*(cpic-min(min(cpic)))/(max(max(cpic))-min(min(cpic)));
 
-    
+
+
+
