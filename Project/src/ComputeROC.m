@@ -32,8 +32,8 @@ function ComputeROC(Cparams,Fdata,NFdata)
         scsNF(it)=ApplyDetector(Cparams,NF.ii_ims(it,:));
     end
     
-    
-    theta.value=0:0.1:10;
+    alpha_sum = sum(Cparams.alphas); %largest possible strong classifier response.
+    theta.value=0:0.1:alpha_sum; %for the strong classifier
     theta.tpr=zeros(size(theta.value));
     theta.fpr=zeros(size(theta.value));
     

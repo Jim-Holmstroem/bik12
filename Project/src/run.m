@@ -67,7 +67,7 @@ NFdata = load('NonFaceData.mat');
 
 %% feature response
 disp('feature response');
-feature_response;
+feature_response(Fdata,NFdata,FTdata,1057);
 
 %% makeclassifierpic
 disp('classifierpic')
@@ -84,7 +84,10 @@ FTdata_mini.H=FTdata.H;
 FTdata_mini.all_ftypes=FTdata.all_ftypes(:,:);
 FTdata_mini.fmat=FTdata.fmat(:,:);
 
-Cparams=BoostingAlg(Fdata,NFdata,FTdata_mini,32);
+exist Cparams;%ugly as fuck
+if ~ans%ugly as fuck 
+    Cparams=BoostingAlg(Fdata,NFdata,FTdata_mini,32);
+end
 
 figure();
     colormap(gray)
