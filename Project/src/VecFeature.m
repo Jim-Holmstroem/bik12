@@ -5,9 +5,8 @@ function ftype_vec = VecFeature(ftype, W, H)
     w=ftype(4);
     h=ftype(5);
    
-    assert(numel(ftype)==5);
+    assert(size(ftype,2)==5);
 
-    ftype_vec=-1;
     switch t
         case 1
             ftype_vec = VecBoxSum(x, y, w, h, W ,H) -VecBoxSum( x, y+h, w, h,W,H);

@@ -26,10 +26,10 @@ function ComputeROC(Cparams,Fdata,NFdata)
     scsNF = zeros(size(NF.ii_ims,1),1);
     
     for it=1:size(scsF,1)
-        scsF(it)=ApplyDetector(Cparams,F.ii_ims(it,:));
+        scsF(it)=ApplyDetector(Cparams,F.ii_ims(it,:)');
     end
     for it=1:size(scsNF,1)
-        scsNF(it)=ApplyDetector(Cparams,NF.ii_ims(it,:));
+        scsNF(it)=ApplyDetector(Cparams,NF.ii_ims(it,:)');
     end
     
     alpha_sum = sum(Cparams.alphas); %largest possible strong classifier response.
